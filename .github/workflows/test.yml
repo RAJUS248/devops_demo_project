@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "Scanning repository for plain-text secrets..."
           # If any tracked file contains the string "SECRET_KEY_LIVE", fail the build
-          if grep -rnw . -e "SECRET_KEY_LIVE" --exclude-dir=".git" --exclude-dir=".github"; then
+          if grep -rn . -e "SECRET_KEY_LIVE" --exclude-dir=".git" --exclude-dir=".github"; then
             echo "ERROR: Plaintext secret detected in codebase! Blocking merge."
             exit 1
           else
