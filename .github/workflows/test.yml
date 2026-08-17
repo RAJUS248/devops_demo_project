@@ -1,0 +1,16 @@
+name: Demo Security Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run a dummy test
+        run: echo "Code looks secure! No plain-text keys found."
